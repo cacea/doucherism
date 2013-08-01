@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+   <div class="row">
+   <div class="large-4">
+    {% if list_all_posts %}
+
+        {% for post in list_all_posts %}
+            <ul class="disc">
+		<li>{{ post.blog_post_content }}</li>
+            </ul>
+        {% endfor %}
+
+    {% endif %}
+
+    {% if form %}
+         {{ form.as_p}}
+    {% endif %}
+   </div> 
+   </div>
+{% endblock %}
