@@ -2,7 +2,12 @@
 
 {% block content%}
     {% if form %}
-        {{ form.as_p }}
+    <form method="post" accept-charset="utf-8">{% csrf_token %}
+        <fieldset>
+         <legend>Register a new post</legend>
+             {{ form.as_p }}
+    	     <input type="submit" class="button"></a>
+        </fieldset>
+    </form>
     {% endif %}
-    <a href="/register/" class="button">Submit</a>
 {% endblock %}

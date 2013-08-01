@@ -9,4 +9,4 @@ class BlogEntry(models.Model):
 
     blog_post_name = models.CharField(max_length=200)
     blog_post_content = models.CharField(max_length=1024)
-    blog_pub_date = models.DateTimeField('date published')
+    blog_pub_date = models.DateTimeField(auto_now=True)
