@@ -1,13 +1,17 @@
 {% extends "base.html" %}
-
+{% load split_string %}
 {% block content %}
    <div class="row">
    <div class="large-4">
     {% if list_all_posts %}
 
         {% for post in list_all_posts %}
-            <ul class="disc">
-		<li>{{ post.blog_post_content }}</li>
+        <ul class="disc">
+		<li>{{ post.blog_post_content }}
+		<a class="th radius" href="/media_files/{{ post.blog_post_image|img_path_last_value:'/' }}">
+			<img src="/media_files/{{ post.blog_post_image|img_path_last_value:'/' }}">
+		</a>
+		</li>
             </ul>
         {% endfor %}
 
