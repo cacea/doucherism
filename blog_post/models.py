@@ -3,6 +3,9 @@ from django.conf import settings
 
 # Create your models here.
 
+"""
+Simple model to handle blog posts
+"""
 class BlogEntry(models.Model):
     
     def __unicode__(self):

@@ -5,12 +5,19 @@ from django.shortcuts import HttpResponseRedirect
 from time import gmtime, strftime
 
 # Create your views here.
-
+"""
+This method will display all user posts (newest first)
+"""
 def home(request):
     blog_template = "blogs.html"
-    list_all_posts = BlogEntry.objects.all().values() # Con esto se listan todos los elementos de que se encuentren en la DB
+    list_all_posts = BlogEntry.objects.all().order_by('-blog_pub_date').values() # List all posts on DB ordered by date (newest first).
     return render(request, blog_template, locals())
 
+"""
+We will provide the user with a form to upload a post. 
+3 fields are available: post name, post data and the file upload option.
+the blog_pub_date is automatically set by DB.
+"""
 def register_user_post(request):
     register_user_template = "register_post.html"
     if request.method == "POST":

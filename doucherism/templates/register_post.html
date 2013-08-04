@@ -1,13 +1,52 @@
 {% extends "base.html" %}
 
 {% block content%}
-    {% if form %}
-    <form method="post" accept-charset="utf-8" enctype="multipart/form-data">{% csrf_token %}
-        <fieldset>
-         <legend>Register a new post</legend>
- 			{{ form.as_p }}
-    	     <input type="submit" class="button"></a>
-        </fieldset>
-    </form>
-    {% endif %}
+{% if form %}
+<form method="post" accept-charset="utf-8" enctype="multipart/form-data">{% csrf_token %}
+    <fieldset>
+        <legend>Register a new post</legend>
+        {{ form.as_p }}
+        <div id="preview_image">
+            {% comment %} We'll show a small preview of the image here {% endcomment %}
+        </div>
+        <input type="submit" class="button"></a>
+</fieldset>
+</form>
+{% endif %}
+
+<script>
+    // set up variables
+    var reader = new FileReader(),
+    numFiles = 0,
+    imageFiles;
+
+    // use the FileReader to read image i
+    function readFile() {
+        reader.readAsDataURL(imageFiles[0])
+    }
+
+    // define function to be run when the File
+    // reader has finished reading the file
+    reader.onloadend = function(e) {
+
+        // make an image and append it to the div
+        var image = $('<img width="460px" height="385px">').attr('src', e.target.result);
+        $(image).appendTo('#preview_image');
+
+        // if there are more files run the file reader again
+        if (i < numFiles) {
+            i++;
+            readFile();
+        }
+    };
+
+    $('#id_blog_post_image').change(function() {
+        $('#preview_image').empty();
+        imageFiles = document.getElementById('id_blog_post_image').files
+        // get the number of files
+        numFiles = imageFiles.length;
+        readFile();           
+    });
+</script>
 {% endblock %}
+

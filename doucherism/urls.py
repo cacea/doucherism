@@ -15,5 +15,6 @@ urlpatterns = patterns('',
 
 if settings.DEBUG:
     urlpatterns += patterns('',
-        (r'^media_files/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),
+        (r'^media_files/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+            #(r'^media_files/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT#, 'show_indexes':True#}),
 )
