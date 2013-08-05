@@ -1,3 +1,4 @@
+chef-repo
 venv
 *.pyc
 *~
@@ -14,4 +15,11 @@ Thumbs.db
 *.sqlite
 *.pot
 local_settings.py
-*.sw*
+
+
+
+
+/cookbooks
+/tmp
+Cheffile.lock
+.sw*
