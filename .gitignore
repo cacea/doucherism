@@ -15,3 +15,7 @@ Thumbs.db
 *.pot
 local_settings.py
 *.sw*
+
+*.png
+*.jpg
+*.JPG
