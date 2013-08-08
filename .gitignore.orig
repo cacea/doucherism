@@ -1,0 +1,30 @@
+chef-repo
+venv
+*.pyc
+*~
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+*.log
+*.sql
+*.sqlite
+*.pot
+local_settings.py
+<<<<<<< HEAD
+staticfiles
+/cookbooks
+/tmp
+Cheffile.lock
+.sw*
+=======
+*.sw*
+
+*.png
+*.jpg
+*.JPG
+>>>>>>> 27aef777a09d3f0e2e97fd886e0b22c3707ab70c
