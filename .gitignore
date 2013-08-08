@@ -19,4 +19,7 @@ staticfiles
 /cookbooks
 /tmp
 Cheffile.lock
-.sw*
+*.sw*
+*.png
+*.jpg
+*.JPG

@@ -1,70 +1,77 @@
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>{{ title }}</title>
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width" />
+            <title>{{ title }}</title>
 
-  <!-- load CSS -->
-  <link rel="stylesheet" href="/static/css/normalize.css" />
-  <link rel="stylesheet" href="/static/css/foundation.css" />
-  <link rel="stylesheet" href="/static/css/lightbox.css" />
+            <!-- load CSS -->
+            <link rel="stylesheet" href="/static/css/normalize.css" />
+            <link rel="stylesheet" href="/static/css/foundation.css" />
+            <link rel="stylesheet" href="/static/css/jquery.fancybox.css" />
 
-  <!-- load JS -->
-  <script src="/static/js/jquery-1.10.2.min.js"></script>
-  <script src="/static/js/lightbox-2.6.min.js"></script>
-  <script src="/static/js/vendor/custom.modernizr.js"></script>
+            <!-- load JS -->
+            <script src="/static/js/jquery-1.10.2.min.js"></script>
+            <script src="/static/js/jquery.fancybox.pack.js"></script>
+            <script src="/static/js/vendor/custom.modernizr.js"></script>
 
 
-</head>
-<body>
+        </head>
+        <body>
 
-<div class="sticky">
-    <nav class="top-bar">
-    <ul class="title-area">
-        <li class="name">
-        <h1><a href="/">Doucherism </a></h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="/"><span>Menu</span></a>
-        </li>
-    </ul>
+            <div class="sticky">
+                <nav class="top-bar">
+                <ul class="title-area">
+                    <li class="name">
+                    <h1><a href="/">Doucherism </a></h1>
+                    </li>
+                    <li class="toggle-topbar menu-icon"><a href="/"><span>Menu</span></a>
+                    </li>
+                </ul>
 
-    <section class="top-bar-section">
-    <ul class="left">
-        <li class="divider"></li>
-        <li class="active"><a href="#">Douchness</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Uberdouchness</a></li>
-        <li class="divider"></li>
-        <li class="has-dropdown"><a href="#">Ultimate douchness</a>
-        <ul class="dropdown">
-            <li><a href="#">Videos</a></li>
-            <li><a href="#">Pictures</a></li>
-        </ul>
-        </li>
-        <li class="divider"></li>
-    </ul>
-    </section>
+                <section class="top-bar-section">
+                <ul class="left">
+                    <li class="divider"></li>
+                    <li class="active"><a href="#">Douchness</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Uberdouchness</a></li>
+                    <li class="divider"></li>
+                    <li class="has-dropdown"><a href="#">Ultimate douchness</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Pictures</a></li>
+                    </ul>
+                    </li>
+                    <li class="divider"></li>
+                </ul>
+                </section>
 
-    </nav>
-</div>
+                </nav>
+            </div>
 
-{%block content%} <!-- body content here --> {%endblock %}
+            {%block content%} <!-- body content here --> {%endblock %}
 
-  
 
-  <script>
-      document.write('<script src=' +
-          ('__proto__' in {} ? '/static/js/vendor/zepto' : '/static/js/vendor/jquery') +
-          '.js><\/script>')
-  </script>
 
-  <script src="/static/js/foundation.min.js"></script>
+            <script>
+                document.write('<script src=' +
+                    ('__proto__' in {} ? '/static/js/vendor/zepto' : '/static/js/vendor/jquery') +
+                    '.js><\/script>')
+                </script>
 
-  <script>
-    $(document).foundation();
-  </script>
-</body>
-</html>
+                <script src="/static/js/foundation.min.js"></script>
+
+                <script>
+                    $(document).foundation();
+                </script>
+
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                            $(".fancybox").fancybox();
+                            });
+                </script>
+
+                    </body>
+                </html>

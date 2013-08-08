@@ -1,22 +1,23 @@
 {% extends "base.html" %}
 {% load split_string %}
 {% block content %}
-   <div class="row">
-   <div class="large-12 columns">
-    {% if list_all_posts %}
-    
-    {% for post in list_all_posts %}
+<div class="row">
+    <div class="large-6 columns">
+        {% if list_all_posts %}
+
+        {% for post in list_all_posts %}
         <ul class="pricing-table">
             <li class="title">{{ post.blog_post_name }}</li>
             <li class="bullet-item">
-            <a class="th radius" href="/media_files/{{ post.blog_post_image|img_path_last_value:'/' }}" data-lightbox="image-{{ post.blog_post_image|img_path_last_value:'/' }}">
-                <img src="/media_files/{{ post.blog_post_image|img_path_last_value:'/' }}" style="max-height:100%; max-width:100%;"></a>
+            <a class="fancybox" href="/media_files/{{ post.blog_post_image|img_path_last_value:'/' }}" title="{{ post.blog_post_content }}" >
+                <img src="/media_files/{{ post.blog_post_image|img_path_last_value:'/' }}" alt="" />
+            </a>
             </li>
             <li class="description">{{ post.blog_post_content}}</li>
         </ul>
-    {% endfor %}
-    {% endif %}
+        {% endfor %}
+        {% endif %}
 
-   </div> 
-   </div>
+    </div> 
+</div>
 {% endblock %}
