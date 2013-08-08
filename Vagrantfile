@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network :forwarded_port, guest: 80, host: 9091
+  config.vm.network :forwarded_port, guest: 5000, host: 9091
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -61,24 +61,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
  config.vm.provision :chef_solo do |chef|
    chef.log_level = :debug
-   chef.cookbooks_path = "cookbooks"
+   chef.cookbooks_path = ["cookbooks", "my_cookbooks"]
 #   chef.roles_path = "../my-recipes/roles"
 #   chef.data_bags_path = "../my-recipes/data_bags"
    chef.add_recipe "apt"
-   chef.add_recipe "postgresql"
+   chef.add_recipe "postgresql::server"
    chef.add_recipe "python"
-   chef.add_recipe "python::django-toolbelt"
-   chef.add_recipe 'rvm::default'
-   chef.add_recipe 'rvm::vagrant'
-   chef.add_recipe 'rvm::system_install'
+   chef.add_recipe "toolbelt"
+#   chef.add_recipe "bash_profile"
 #   chef.add_role "web"
    chef.json = {
-      :rvm => {
-        :default_ruby => '1.9.3',
-        :global_gems => [
-          { :name => "heroku" }
-        ]
-      },
       :postgresql => {
         :config   => {
           :listen_addresses => "*",
@@ -87,10 +79,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :pg_hba   => [
           {
             :type   => "local",
+            :db     => "all",
+            :user   => "all",
+            :addr   => nil,
+            :method => "md5"
+          },
+          {
+            :type   => "local",
             :db     => "postgres",
             :user   => "postgres",
             :addr   => nil,
-            :method => "trust"
+            :method => "md5"
           },
           {
             :type   => "host",
@@ -115,5 +114,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
  end
+ 
+ config.vm.provision :shell, :path => 'vagrant_scripts/heroku.sh'
+# config.vm.provision :shell, :path => 'vagrant_scripts/env.sh'
 
 end

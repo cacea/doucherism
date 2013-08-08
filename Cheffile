@@ -5,9 +5,10 @@ site 'http://community.opscode.com/api/v1'
 
 # cookbook 'chef-client'
 
+cookbook 'apt'
 cookbook 'python'
 cookbook 'postgresql'
-cookbook "rvm",
-    :git => 'https://github.com/fnichol/chef-rvm'
+#cookbook 'bash_profile',
+#   :git => 'https://github.com/kyleburton/chef-cookbooks/'
 #   :git => 'https://github.com/findsyou/cookbooks',
 #   :ref => 'postgresql-improvements'

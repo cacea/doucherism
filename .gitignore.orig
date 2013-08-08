@@ -15,8 +15,11 @@ Thumbs.db
 *.sqlite
 *.pot
 local_settings.py
-staticfiles
+<<<<<<< HEAD
+*.sw*
+=======
+.sw* 
 /cookbooks
 /tmp
 Cheffile.lock
-.sw*
+>>>>>>> updated .gitignore and added Vagrantfile and Cheffile

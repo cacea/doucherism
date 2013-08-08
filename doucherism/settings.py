@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 # Django settings for doucherism project.
 
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
@@ -15,21 +16,21 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'doucherism.sqlite',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#        'NAME': 'postgres',                      # Or path to database file if using sqlite3.
+#        # The following settings are not used with sqlite3:
+#        'USER': 'postgres',
+#        'PASSWORD': 'password',
+#        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+#        'PORT': '',                      # Set to empty string for default.
+#    }
+#}
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -67,20 +68,20 @@ MEDIA_URL = '/media_files/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = PROJECT_PATH + '/static_files/'
+# STATIC_ROOT = PROJECT_PATH + '/static_files/'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-    PROJECT_PATH + '/static/',
-    PROJECT_PATH + '/media/',
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+# STATICFILES_DIRS = (
+#    PROJECT_PATH + '/static/',
+#    PROJECT_PATH + '/media/',
+#    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+#    # Always use forward slashes, even on Windows.
+#    # Don't forget to use absolute paths, not relative paths.
+# )
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -134,6 +135,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'blog_post',
+	'south',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -164,3 +166,22 @@ LOGGING = {
         },
     }
 }
+
+# Parse database configuration from $DATABASE_URL
+# DATABASES['default'] =  dj_database_url.config()
+DATABASES =  {'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))}
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
