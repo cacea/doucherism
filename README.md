@@ -16,7 +16,7 @@ Requirements:
 - chef-solo (11.0+ on Host and Guest)
 - librarian-chef
 
-Installation Procedure
+Installation Procedure:
 1) git clone this repo
 2) run "librarian-chef install"
 3) run "vagrant up"
