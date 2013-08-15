@@ -17,12 +17,12 @@ Requirements:
 - librarian-chef
 
 Installation Procedure:
-1) git clone this repo
-2) run "librarian-chef install"
-3) run "vagrant up"
-4) run "vagrant ssh"
-5) run "cd /vagrant"
-6) run "export DATABASE_URL='postgres://postgres:password@localhost:5432/postgres'"
-7) run "python manage.py syncdb --all && python manage.py migrate --fake"
-8) run "foreman start"
-9) open Browser to localhost:9091
+- git clone this repo
+- run "librarian-chef install"
+- run "vagrant up"
+- run "vagrant ssh"
+- run "cd /vagrant"
+- run "export DATABASE_URL='postgres://postgres:password@localhost:5432/postgres'"
+- run "python manage.py syncdb --all && python manage.py migrate --fake"
+- run "foreman start"
+- open Browser to localhost:9091
