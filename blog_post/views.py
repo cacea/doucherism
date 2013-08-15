@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from blog_post.models import BlogEntry
+from blog_post.models import BlogEntry, Category
 from blog_post.forms import BlogPostForm
 from django.shortcuts import HttpResponseRedirect
 from time import gmtime, strftime
@@ -10,7 +10,7 @@ This method will display all user posts (newest first)
 """
 def home(request):
     blog_template = "blogs.html"
-    list_all_posts = BlogEntry.objects.all().order_by('-blog_pub_date').values() # List all posts on DB ordered by date (newest first).
+    list_all_posts = BlogEntry.objects.all().order_by('-blog_pub_date').values('blog_post_name', 'blog_post_content', 'blog_post_category__name', 'blog_post_image') # List all posts on DB ordered by date (newest first).
     return render(request, blog_template, locals())
 
 """
