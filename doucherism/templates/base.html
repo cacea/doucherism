@@ -34,11 +34,13 @@
                 <section class="top-bar-section">
                 <ul class="left">
                     <li class="divider"></li>
-                    <li class="active"><a href="#">Douchness</a></li>
+                    <li class="active"><a href="/blog/douchness/">Douchness</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Uberdouchness</a></li>
+                    <li><a href="/blog/uberdouche/">Uberdouchness</a></li>
                     <li class="divider"></li>
-                    <li class="has-dropdown"><a href="#">Ultimate douchness</a>
+                    <li><a href="/blog/ultimate/">Ultimate douchness</a></li>
+                    <li class="divider"></li>
+                    <li class="has-dropdown"><a href="#">Media</a>
                     <ul class="dropdown">
                         <li><a href="#">Videos</a></li>
                         <li><a href="#">Pictures</a></li>
@@ -46,6 +48,18 @@
                     </li>
                     <li class="divider"></li>
                 </ul>
+
+		<ul class="right">
+                    <li class="has-dropdown"><a href="#">User menu</a>
+			<ul class="dropdown">
+			    {% if request.user.is_authenticated %}
+                                <li><a href="/logout/">Logout</a></li>
+                            {% else %}
+                                <li><a href="/login/">Login</a></li>
+			    {% endif %}
+			</ul>
+	            </li>
+		</ul>
                 </section>
 
                 </nav>

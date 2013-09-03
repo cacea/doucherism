@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/login/" method="POST">{% csrf_token %}
+   <fieldset>
+	<legend>Login</legend>
+
+   <div class="row">
+	<div class="large-6 columns">
+        	<label for="user">Username</label>
+		<input name="username" type="text" placeholder="Username">
+        </div> <!--large-6 columns -->	
+   </div><!-- row -->
+
+   <div class="row">
+	<div class="large-6 columns">
+        	<label for="pass">Password</label>
+		<input name="password" type="password" placeholder="Password">
+        </div> <!--large-6 columns -->	
+   </div><!-- row -->
+   
+   <div class="row">
+	<div class="large-7 columns large-offset-5">
+	       <button class="small button">Login</button>
+        </div>
+   </div>
+   </fieldset>
+</form>
+
+{% endblock %}
